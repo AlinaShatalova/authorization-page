@@ -8,6 +8,7 @@ const AuthContext = React.createContext({
     onLogin: (email, password) => {},
 });
 
+// and this is an exported component (only provider not object)
 export const AuthContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -17,12 +18,12 @@ export const AuthContextProvider = (props) => {
     }, []);
 
     const logoutHandler = () => {
-        localStorage.setItem('isLoggedIn', true);
+        localStorage.removeItem('isLoggedIn', true);
         setIsLoggedIn(false);
     };
 
     const loginHandler = (email, password) => {
-        localStorage.removeItem('isLoggedIn', true);
+        localStorage.setItem('isLoggedIn', true);
         setIsLoggedIn(true);
     };
 
@@ -37,4 +38,5 @@ export const AuthContextProvider = (props) => {
     )
 };
 
+// and as a default we export context object
 export default AuthContext;
