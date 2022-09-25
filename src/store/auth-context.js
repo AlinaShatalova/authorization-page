@@ -1,14 +1,11 @@
-// and this is context managment component
 import React, { useState, useEffect } from 'react';
 
-// default context object
 const AuthContext = React.createContext({
     isLoggedIn: false,
     onLogout: () => {},
     onLogin: (email, password) => {},
 });
 
-// and this is an exported component (only provider not object)
 export const AuthContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -38,5 +35,4 @@ export const AuthContextProvider = (props) => {
     )
 };
 
-// and as a default we export context object
 export default AuthContext;
